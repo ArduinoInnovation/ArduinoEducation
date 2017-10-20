@@ -1,0 +1,4 @@
+#! /bin/bash
+cd /Users/xuxiangzhe/Library/Mobile\ Documents/com\~apple\~CloudDocs/Learning/RINC/ArduinoEducation
+
+git pull

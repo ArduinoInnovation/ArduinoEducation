@@ -1,0 +1,13 @@
+#! /bin/bash
+cd /Users/xuxiangzhe/Library/Mobile\ Documents/com\~apple\~CloudDocs/Learning/RINC/ArduinoEducation
+git add .
+if [ -n "$1" ]
+then 
+git commit -m "$1"
+else
+git commit
+
+fi 
+
+git pull 
+git push
