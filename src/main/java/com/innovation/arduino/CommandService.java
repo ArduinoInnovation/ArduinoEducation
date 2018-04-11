@@ -1,7 +1,9 @@
-package com.innovation.arduino.state;
+package com.innovation.arduino;
 
 import com.innovation.arduino.exception.FileIOException;
 import com.innovation.arduino.exception.InvalidInputException;
+import com.innovation.arduino.state.CommandVO;
+import com.innovation.arduino.state.State;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -22,21 +24,21 @@ public class CommandService {
             return false;
         }
         StringBuilder uartCommand = new StringBuilder();
-        if (command.master != null) {
-            if (command.master.size() > 99) {
+        if (command.getMaster() != null) {
+            if (command.getMaster().size() > 99) {
                 throw new InvalidInputException("主机状态超过上限(99个状态)");
             } else {
-                uartCommand.insert(0, String.format("%.2d", command.master.size()));
-                addCommands(uartCommand, command.master);
+                uartCommand.insert(0, String.format("%.2d", command.getMaster().size()));
+                addCommands(uartCommand, command.getMaster());
             }
 
         }
-        if (command.slave != null) {
-            if (command.slave.size() > 99) {
+        if (command.getSlave() != null) {
+            if (command.getSlave().size() > 99) {
                 throw new InvalidInputException("从机状态超过上限（99个状态）");
             } else {
-                uartCommand.insert(2, String.format("%.2d", command.slave.size()));
-                addCommands(uartCommand, command.slave);
+                uartCommand.insert(2, String.format("%.2d", command.getSlave().size()));
+                addCommands(uartCommand, command.getSlave());
             }
         }
         sendCommands(new String(uartCommand));

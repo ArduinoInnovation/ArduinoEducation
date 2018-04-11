@@ -15,11 +15,27 @@ public class CommandVO {
      * 主机状态
      */
     @JsonProperty("master")
-    List<State> master;
+    private List<State> master;
 
     /**
      * 从机状态
      */
     @JsonProperty("slave")
-    List<State> slave;
+    private List<State> slave;
+
+    public List<State> getMaster() {
+        return master;
+    }
+
+    public void setMaster(List<State> master) {
+        this.master = master;
+    }
+
+    public List<State> getSlave() {
+        return slave;
+    }
+
+    public void setSlave(List<State> slave) {
+        this.slave = slave;
+    }
 }
