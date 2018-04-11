@@ -28,7 +28,7 @@ public class CommandService {
             if (command.getMaster().size() > 99) {
                 throw new InvalidInputException("主机状态超过上限(99个状态)");
             } else {
-                uartCommand.insert(0, String.format("%.2d", command.getMaster().size()));
+                uartCommand.insert(0, String.format("%02d", command.getMaster().size()));
                 addCommands(uartCommand, command.getMaster());
             }
 
@@ -37,10 +37,11 @@ public class CommandService {
             if (command.getSlave().size() > 99) {
                 throw new InvalidInputException("从机状态超过上限（99个状态）");
             } else {
-                uartCommand.insert(2, String.format("%.2d", command.getSlave().size()));
+                uartCommand.insert(2, String.format("%02d", command.getSlave().size()));
                 addCommands(uartCommand, command.getSlave());
             }
         }
+        uartCommand.insert(0,"SSSS");
         sendCommands(new String(uartCommand));
         return true;
 
@@ -56,6 +57,8 @@ public class CommandService {
     }
 
     private void sendCommands(String uartCommands) {
+        System.err.println(uartCommands);
+        /*
         try {
             Process process = Runtime.getRuntime().exec("/bin/bash", ((String[]) System.getenv().values().toArray()), new File("/bin"));
             Scanner scanner = new Scanner(new InputStreamReader(process.getInputStream()));
@@ -74,5 +77,6 @@ public class CommandService {
         } catch (IOException e) {
             throw new FileIOException("系统指令执行错误！");
         }
+        */
     }
 }

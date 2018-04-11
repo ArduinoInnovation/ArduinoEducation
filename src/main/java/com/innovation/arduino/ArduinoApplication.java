@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class ArduinoApplication {
 
 	public static void main(String[] args) throws IOException {
-//		SpringApplication.run(ArduinoApplication.class, args);
+		SpringApplication.run(ArduinoApplication.class, args);
 //		"/bin/bash","-c","echo \"Fxsxwz1456\" | sudo -S
 //		String cmd[]={"/bin/bash","-c","echo \" \"| sudo -S /home/xxz/Documents/ardUART/run.sh /home/xxz/Documents/ardUART/test2.sh"};
 //		String cmd[]={"/bin/bash","-c","echo $TERM","ls","echo $TERM"};
