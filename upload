@@ -1,5 +1,5 @@
 #! /bin/bash
-cd /Users/xuxiangzhe/Library/Mobile\ Documents/com\~apple\~CloudDocs/Learning/RINC/ArduinoEducation
+cd /Users/xuxiangzhe/Library/Mobile\ Documents/com\~apple\~CloudDocs/Learning/创新项目/arduino
 git add .
 if [ -n "$1" ]
 then 
