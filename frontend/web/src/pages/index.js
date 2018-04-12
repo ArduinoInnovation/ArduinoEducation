@@ -148,7 +148,11 @@ class IndexPage extends React.Component{
   onDelete=(id,laneId)=>{
     const newLane=this.state.lanes.slice(0);
     newLane[laneId].cards=newLane[laneId].cards.filter(items=>items.id!=id);
-    this.setState({lanes:newLane,selectedItem:undefined});
+    this.setState({lanes:newLane});
+
+    if(id==this.state.selectedItem){
+      this.setState({selectedItem:undefined})
+    }
   };
 
   render(){
