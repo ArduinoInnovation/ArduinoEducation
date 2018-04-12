@@ -21,18 +21,18 @@ const RadioGroup=Radio.Group;
 
 const emptyContent= {
   infrared: true,
-  forward: true,
+  forward: false,
   action: {
-    isActive: true,
+    isActive: false,
     direction: "FORWARD",
-    speed: 1,
+    speed: 0,
     time: 0
   },
   ultral: {
-    isActive: true,
-    r: 2
+    isActive: false,
+    r: 0
   },
-  voice: true
+  voice: false
 };
 
 class IndexPage extends React.Component{
@@ -132,11 +132,15 @@ class IndexPage extends React.Component{
 
   onPlus=(id)=>{
     console.log("plus",id);
-    const newCard={
+    let newCard={
       id: this.count++,
       title: "Card A",
       content:_.cloneDeep(emptyContent)
     };
+
+    if(id==0){
+      newCard.content.forward=true;
+    }
 
     console.log("newCard",newCard);
 
@@ -204,6 +208,17 @@ class IndexPage extends React.Component{
       console.log("onFormChange",detail);
       selectedContent={
         ...selectedContent,
+        action: {
+          isActive: false,
+          direction: "FORWARD",
+          speed: 0,
+          time: 0
+        },
+        ultral: {
+          isActive: false,
+          r: 0
+        },
+        voice: false,
         ...detail
       };
       console.log("final",selectedContent);
@@ -261,8 +276,8 @@ class IndexPage extends React.Component{
               <PerfectScrollbar>
                 <div style={{fontSize:'40px',fontWeight:'bold',textAlign:'center',paddingTop:'30px'}}>{`${cloneLanes[this.state.selectedItemLane].title} STEP ${itemIndex}`}</div>
                 <div style={{margin:"0 auto", padding:'20px 40px'}}>
-                  <FormItem title="红外线" item={<Switch defaultChecked={selectedContent.infrared} onChange={(checked)=>onFormChange({infrared:checked})} />}/>
-                  <FormItem title="转发控制字" item={<Switch defaultChecked={selectedContent.forward} onChange={(checked)=>onFormChange({forward:checked})} />}/>
+                  <FormItem  title="红外线" item={<Switch disabled={true} defaultChecked={selectedContent.infrared} onChange={(checked)=>onFormChange({infrared:checked})} />}/>
+                  <FormItem  title="转发控制字" item={<Switch disabled={true}  defaultChecked={selectedContent.forward} onChange={(checked)=>onFormChange({forward:checked})} />}/>
                   <FormItem title="驱动马达"/>
                   <div style={{padding:'10px 20px',borderLeft:'5px solid grey',margin:'10px 5px', background:'rgba(153, 153, 153, 0.14)'}}>
                     <FormMinItem title="是否启用" item={<Switch defaultChecked={selectedContent.action.isActive} onChange={(checked)=>onFormChange({action:{...selectedContent.action,isActive:checked}})} />}/>
