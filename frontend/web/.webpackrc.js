@@ -15,7 +15,7 @@ export default {
   },
   "proxy": {
     "/api": {
-      "target": "http://101.201.65.211:8888/",
+      "target": "http://localhost:7799/",
       "changeOrigin": true,
     }
   },

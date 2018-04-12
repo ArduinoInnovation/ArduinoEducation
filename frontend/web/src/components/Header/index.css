@@ -1,0 +1,33 @@
+.my-name{
+  margin: 0;
+  display: inline-block;
+  line-height: 63px;
+  font-size: 40px;
+  padding: 0 0 0 20px;
+  font-family: 'Lobster', serif;
+  color: rgba(0, 0, 0, 0.609);
+}
+
+.my-name a{
+  color: rgba(0, 0, 0, 0.678);
+}
+.main-nav-container{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom:0;
+  width: 250px;
+  transition: .5s all;
+  line-height: 63px;
+  font-size: 28px;
+  letter-spacing: 5px;
+  text-align: center;
+  cursor: pointer;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.main-nav-container:hover{
+  background-color: #5c67ff;
+  color: white;
+}

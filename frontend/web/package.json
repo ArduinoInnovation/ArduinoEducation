@@ -7,6 +7,8 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "immutability-helper": "^2.6.6",
+    "lodash": "^4.17.5",
     "rc-queue-anim": "^1.4.1",
     "rc-tween-one": "^1.7.3",
     "react-beautiful-dnd": "^7.0.0",

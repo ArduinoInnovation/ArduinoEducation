@@ -30,7 +30,7 @@ export default async function request(url, options) {
     };
     options.body = JSON.stringify(options.body);
   }
-  const response = await fetch("/api/v1"+url, options);
+  const response = await fetch(url, options);
   checkStatus(response);
 
   const data = await response.json();
