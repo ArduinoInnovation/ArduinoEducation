@@ -58,25 +58,25 @@ public class CommandService {
 
     private void sendCommands(String uartCommands) {
         System.err.println(uartCommands);
-        /*
+
         try {
-            Process process = Runtime.getRuntime().exec("/bin/bash", ((String[]) System.getenv().values().toArray()), new File("/bin"));
+            Process process = Runtime.getRuntime().exec("/bin/bash", null, new File("/bin"));
             Scanner scanner = new Scanner(new InputStreamReader(process.getInputStream()));
             Scanner scanner1 = new Scanner(new InputStreamReader(process.getErrorStream()));
             PrintWriter writer = new PrintWriter(new OutputStreamWriter(process.getOutputStream()), true);
             writer.println("export TERM=vt102");
             writer.println("echo $TERM");
-            writer.println("/home/xxz/Documents/ardUART/tmp.sh"+" "+uartCommands);
+            writer.println("/home/xxz/Documents/ardUART/tmp.sh"+" "+uartCommands+" "+uartCommands.length());
             writer.println("exit");
             while(scanner.hasNext()){
-                System.out.println(scanner.next());
+                System.out.println(scanner.nextLine());
             }
             while (scanner1.hasNext()){
-                System.err.println(scanner1.next());
+                System.err.println(scanner1.nextLine());
             }
         } catch (IOException e) {
             throw new FileIOException("系统指令执行错误！");
         }
-        */
+
     }
 }
