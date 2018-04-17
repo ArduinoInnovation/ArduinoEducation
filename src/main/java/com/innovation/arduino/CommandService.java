@@ -57,6 +57,23 @@ public class CommandService {
     }
 
     private void sendCommands(String uartCommands) {
+        System.out.println(uartCommands);
+        StringBuilder cmdCommand=new StringBuilder();
+        int i;
+        for(i=0;(i+1)*20<uartCommands.length();i++){
+            cmdCommand
+                    .append("send " + "\\\"")
+                    .append(uartCommands, i * 20, (i + 1) * 20)
+                    .append(" \\\"");
+            cmdCommand.append(System.lineSeparator());
+            cmdCommand.append("sleep 5")
+                    .append(System.lineSeparator());
+        }
+        String str=uartCommands.substring(i*20);
+        cmdCommand
+                .append("send \\\"")
+                .append(str)
+                .append("\\\"");
         System.err.println(uartCommands);
 
         try {
@@ -66,7 +83,7 @@ public class CommandService {
             PrintWriter writer = new PrintWriter(new OutputStreamWriter(process.getOutputStream()), true);
             writer.println("export TERM=vt102");
             writer.println("echo $TERM");
-            writer.println("/home/xxz/Documents/ardUART/tmp.sh"+" "+uartCommands+" "+uartCommands.length());
+            writer.println("/home/xxz/Documents/ardUART/tmp.sh"+" \""+ cmdCommand+"\"");
             writer.println("exit");
             while(scanner.hasNext()){
                 System.out.println(scanner.nextLine());
