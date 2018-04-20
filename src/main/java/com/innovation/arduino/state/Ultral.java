@@ -49,6 +49,6 @@ public class Ultral implements EncodeAble{
         char c1,c2;
         c1=isActive?'D':'d';
         c2=String.valueOf(r%4).charAt(0);
-        return c1+c2+"34";
+        return ""+c1+c2+"34";
     }
 }

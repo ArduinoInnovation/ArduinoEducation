@@ -60,16 +60,17 @@ public class CommandService {
         System.out.println(uartCommands);
         StringBuilder cmdCommand=new StringBuilder();
         int i;
-        for(i=0;(i+1)*20<uartCommands.length();i++){
+        int LENGTH=40;
+        for(i=0;(i+1)*LENGTH<uartCommands.length();i++){
             cmdCommand
                     .append("send " + "\\\"")
-                    .append(uartCommands, i * 20, (i + 1) * 20)
-                    .append(" \\\"");
+                    .append(uartCommands, i *LENGTH, (i + 1) *LENGTH)
+                    .append("\\\"");
             cmdCommand.append(System.lineSeparator());
             cmdCommand.append("sleep 5")
                     .append(System.lineSeparator());
         }
-        String str=uartCommands.substring(i*20);
+        String str=uartCommands.substring(i*LENGTH);
         cmdCommand
                 .append("send \\\"")
                 .append(str)

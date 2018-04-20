@@ -75,7 +75,7 @@ public class State implements EncodeAble {
         stringBuilder.append(infrared.encoding());
         stringBuilder.append(forward.encoding());
         stringBuilder.append(motor.encoding());
-        stringBuilder.append(motor.encoding());
+        stringBuilder.append(ultral.encoding());
         stringBuilder.append(voice.encoding());
         return new String(stringBuilder);
     }
